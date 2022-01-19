@@ -1,0 +1,49 @@
+
+Week 2 Research
+
+Prompts
+
+Look up 10 different functions available in MySQL that were not covered in the video curriculum. What do they do and how can you use them?
+
+CURDATE()                  yields current date
+DATE_ADD()                 Add time values (intervals) to a date value 
+SUBSTRING(str,pos,length)  select a substring from a string
+UPPER(str)                 transform a string to Uppercase   
+LOWER(str)                 transform a string to Lowercase
+TRIM(str,[removestr])      Trim a string of a specific character, Use
+                           for removing whitespace
+                           optional parameters of 
+                            [BOTH|LEADING|TRAILING] – BOTH as Default,
+                            removstr – string to remove, space as default      
+REPLACE(str,from,to)        Replace a substring in a string with a replacement
+REVERSE(str)                Reverse a string 
+LOAD_FILE(filename)         Load a file into an Object field (CLOB or BlOB) 
+                            Use for loading a raw file document or image into
+                            a data field
+GET_LOCK(lock_name)         Get/Release a lock identified by lock_name
+     /                      held by session 
+RELEASE_LOCK(lock_name)     Used to prevent deadlock on multi-table/multi-row 
+                            transactions
+
+
+Write a query using each of the 10 functions you described above (10 queries in total, one for each function).
+
+SELECT CURDATE();                            // Current date
+SELECT DATE_ADD(Curdate(),INTERVAL -2 DAY);  // 2 days ago
+SELECT SUBSTRING('FIZZBUZZ',3,2);            // yields ‘ZZ
+SELECT UPPER('lower');                       // yields  ‘’LOWER’
+SELECT LOWER('LOWER');                       // yields lower
+SELECT TRIM('   Fizzbuzz   ');               // yields ‘Fizzbuzz’
+SELECT REPLACE('fizzbuzz','buzz','fizz');    // yields ‘fizzfizz’
+SELECT REVERSE('tedious');                   // yields  ‘suoidet’
+INSERT INTO  table_name ( [BLOB|CLOB]_column_name )
+  Values (LOAD_FILE(path_to_some_blob_file_such_as_an_image)); 
+ //Loads the contents of the file into the Object
+SELECT GET_LOCK(table_name.column_name,10)
+ //Obtains a lock named table_name.column name within the timeout value
+ //of 10   seconds 
+
+
+What is your favorite thing you learned this week?
+Mysql extension of the subquery for joins as creating in memory tables. 
+
